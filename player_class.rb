@@ -1,4 +1,3 @@
-
 class Player
 
   attr_accessor :name, :score, :turns
@@ -9,7 +8,12 @@ class Player
     @turns = 0
   end
 
+  def lose_score
+    self.score -= 1
+  end
+
   def change_score(check)
+
     turn_had
     if (check == true)
       true

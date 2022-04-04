@@ -1,30 +1,42 @@
+require './random_class'
 
 class Question
-  #random questions
+
   attr_accessor :type
 
-  #make obj of either subtract, add
-  def initialize(type)
-    @type = type
-    #depending on the type, manipulates other var?
+  def initialize()
+
+    @first = Random.new(1, 20)
+    @second = Random.new(1, 20)
+    @type = Random.new(1, 2)
+
   end
   
-  def question(first, second, player)
-    if type == 1
-      add(first, second, player)
-    elsif type == 2
-      subtract(first, second, player)
+  def ask(player)
+    if @type.num == 1
+      add(@first, @second, player)
+    elsif @type.num == 2
+      subtract(@first, @second, player)
     end
   end
 
     
   def add(first, second, player)
 
-    #use random to get first + second numbers
     puts "#{player.name}: What does #{first.num} + #{second.num} equal?"
     print "> "
-    answer = $stdin.gets.chomp.to_i
-    first.num + second.num == answer ? true : false
+
+    answer = first.num + second.num
+    user_answer = gets.chomp.to_i
+
+    if (user_answer != answer)
+      puts "#{player.name}: INCORRECT"
+      puts "------------------"
+      player.lose_score
+    else
+      puts "#{player.name}: CORRECT"
+      puts "----------------"
+    end
 
   end
 
@@ -32,9 +44,18 @@ class Question
 
     puts "#{player.name}: What does #{first.num} - #{second.num} equal?"
     print "> "
-    answer = $stdin.gets.chomp.to_i
 
-    first.num - second.num == answer ? true : false
+    answer = first.num - second.num
+    user_answer = gets.chomp.to_i
+
+    if (user_answer != answer)
+      puts "#{player.name}: INCORRECT"
+      puts "------------------"
+      player.lose_score
+    else
+      puts "#{player.name}: CORRECT"
+      puts "----------------"
+    end
       
   end
 
