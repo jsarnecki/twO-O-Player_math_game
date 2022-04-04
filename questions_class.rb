@@ -9,11 +9,11 @@ class Question
     #depending on the type, manipulates other var?
   end
   
-  def question(player)
+  def question(first, second, player)
     if type == 1
-      #addition method
+      add(first, second, player)
     elsif type == 2
-      #subtract method
+      subtract(first, second, player)
     end
   end
 
@@ -38,8 +38,4 @@ class Question
       
   end
 
-
-  #method able to manipulate player score?
-
-  #game loop instance?
 end
