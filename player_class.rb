@@ -9,8 +9,8 @@ class Player
   end
 
   def change_score(check)
-    if (check)
-      return
+    if (check == true)
+      true
     elsif (check == false)
       self.score -= 1
     end
@@ -18,5 +18,3 @@ class Player
 
 end
 
-#2 players objs
-#Inital score/lives - 3

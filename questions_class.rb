@@ -1,55 +1,40 @@
 
 class Question
   #random questions
+  attr_accessor :type
 
   #make obj of either subtract, add
   def initialize(type)
     @type = type
     #depending on the type, manipulates other var?
   end
-
-  def random
-    return 1 + rand(20)
-  end
   
   def question(player)
-    if num == 1
+    if type == 1
       #addition method
-    elsif num == 2
+    elsif type == 2
       #subtract method
     end
   end
 
     
-  def add(player)
+  def add(first, second, player)
 
-    first = random()
-    second = random()
     #use random to get first + second numbers
-    puts "#{player}: What does #{first} + #{second} equal?"
+    puts "#{player.name}: What does #{first.num} + #{second.num} equal?"
     print "> "
-    answer = $stdin.gets.chomp
-    if (first + second == answer)
-      return true
-    else
-      return false
-    end
+    answer = $stdin.gets.chomp.to_i
+    first.num + second.num == answer ? true : false
 
   end
 
-  def subtract(player)
-    first = random()
-    second = random()
-    #use random to get first + second numbers
-    puts "#{player}: What does #{first} - #{second} equal?"
-    print "> "
-    answer = $stdin.gets.chomp
-    if (first - second == answer)
-      return true
-    else
-      return false;
+  def subtract(first, second, player)
 
-    end
+    puts "#{player.name}: What does #{first.num} - #{second.num} equal?"
+    print "> "
+    answer = $stdin.gets.chomp.to_i
+
+    first.num - second.num == answer ? true : false
       
   end
 
