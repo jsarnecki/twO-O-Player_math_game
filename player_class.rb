@@ -8,9 +8,14 @@ class Player
     @score = 3
   end
 
-  #get score method
+  def change_score(check)
+    if (check)
+      return
+    elsif (check == false)
+      self.score -= 1
+    end
+  end
 
-  #set score method
 end
 
 #2 players objs
